@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plume &amp; Touch — Luxury Light-Touch Wellness</title>
+  <meta name="description" content="Plume & Touch offers bespoke fingertip relaxation experiences using artisan finger accessories. Pop-up wellness for hotels, prenatal care, and private events." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================
+       CSS VARIABLES — YOUR COLOR SCHEME
+       ============================================ */
+    :root {
+      --sage: #8FA seventeen;
+      --sage: #8FAE7E;
+      --sage-light: #B7CFA9;
+      --sage-pale: #E8F0E3;
+      --sage-dark: #5E7A52;
+      --white: #FFFFFF;
+      --off-white: #FAFAF7;
+      --cream: #F5F3EE;
+      --gold: #C6A84B;
+      --gold-light: #E2D18F;
+      --gold-dark: #9A7D2E;
+      --charcoal: #2C2C2C;
+      --text-dark: #3A3A3A;
+      --text-medium: #6B6B6B;
+      --text-light: #999999;
+    }
+
+    /* ============================================
+       RESET & BASE
+       ============================================ */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      color: var(--text-dark);
+      background-color: var(--off-white);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* ============================================
+       UTILITY CLASSES
+       ============================================ */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-padding {
+      padding: 100px 0;
+    }
+
+    .gold-line {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      margin: 16px auto 24px;
+    }
+
+    .section-subtitle {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: 2.8rem;
+      color: var(--charcoal);
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .section-desc {
+      text-align: center;
+      max-width: 620px;
+      margin: 0 auto 50px;
+      color: var(--text-medium);
+      font-size: 1rem;
+    }
+
+    /* ============================================
+       NAVIGATION
+       ============================================ */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 20px 0;
+      transition: all 0.4s ease;
+      background: transparent;
+    }
+
+    .navbar.scrolled {
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 30px rgba(0,0,0,0.06);
+      padding: 12px 0;
+    }
+
+    .navbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--white);
+      transition: color 0.4s;
+    }
+
+    .navbar.scrolled .nav-logo {
+      color: var(--charcoal);
+    }
+
+    .nav-logo span {
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 36px;
+    }
+
+    .nav-links a {
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--white);
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    .navbar.scrolled .nav-links a {
+      color: var(--text-dark);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--gold);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    /* Mobile hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 2px;
+      background: var(--white);
+      transition: all 0.3s;
+    }
+
+    .navbar.scrolled .hamburger span {
+      background: var(--charcoal);
+    }
+
+    /* ============================================
+       HERO SECTION
+       ============================================ */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 700px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(94, 122, 82, 0.85) 0%,
+          rgba(143, 174, 126, 0.7) 40%,
+          rgba(198, 168, 75, 0.4) 100%
+        ),
+        url('https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?w=1600&q=80') center/cover no-repeat;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      color: var(--white);
+      max-width: 800px;
+      padding: 0 24px;
+    }
+
+    .hero-tag {
+      font-size: 0.75rem;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+
+    .hero h1 {
+      font-size: 4.2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.1;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      font-weight: 300;
+      opacity: 0.9;
+      max-width: 560px;
+      margin: 0 auto 40px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 16px 48px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 0;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(198, 168, 75, 0.4);
+    }
+
+    .btn-outline {
+      display: inline-block;
+      padding: 14px 44px;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s;
+      background: transparent;
+      margin-left: 16px;
+    }
+
+    .btn-outline:hover {
+      background: var(--gold);
+      color: var(--white);
+    }
+
+    /* ============================================
+       VIDEO SLIDER SECTION
+       ============================================ */
+    .video-section {
+      background: var(--charcoal);
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .video-section .section-subtitle {
+      color: var(--gold-light);
+    }
+
+    .video-section .section-title {
+      color: var(--white);
+    }
+
+    .video-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      border: 2px solid var(--gold);
+      padding: 4px;
+    }
+
+    .video-wrapper video,
+    .video-wrapper iframe {
+      width: 100%;
+      display: block;
+    }
+
+    .video-placeholder {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background:
+        linear-gradient(135deg, var(--sage-dark), var(--sage)),
+        var(--charcoal);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 1rem;
+      gap: 12px;
+    }
+
+    .play-icon {
+      width: 70px;
+      height: 70px;
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      color: var(--gold);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .play-icon:hover {
+      background: var(--gold);
+      color: var(--white);
+    }
+
+    /* ============================================
+       ABOUT / INTRO SECTION
+       ============================================ */
+    .about {
+      background: var(--white);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-image {
+      position: relative;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+    }
+
+    .about-image::after {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      right: -20px;
+      bottom: -20px;
+      border: 2px solid var(--gold);
+      z-index: -1;
+    }
+
+    .about-text .section-subtitle,
+    .about-text .section-title {
+      text-align: left;
+    }
+
+    .about-text .gold-line {
+      margin: 16px 0 24px;
+    }
+
+    .about-text p {
+      color: var(--text-medium);
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+    }
+
+    /* ============================================
+       SERVICES SECTION
+       ============================================ */
+    .services {
+      background: var(--sage-pale);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .service-card {
+      background: var(--white);
+      padding: 48px 32px;
+      text-align: center;
+      transition: all 0.4s;
+      border: 1px solid transparent;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--sage), var(--gold));
+      transform: scaleX(0);
+      transition: transform 0.4s;
+    }
+
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+      border-color: var(--gold-light);
+    }
+
+    .service-icon {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .service-card h3 {
+      font-size: 1.5rem;
+      color: var(--charcoal);
+      margin-bottom: 12px;
+    }
+
+    .service-card p {
+      color: var(--text-medium);
+      font-size: 0.9rem;
+    }
+
+    .service-price {
+      margin-top: 20px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      color: var(--gold-dark);
+      font-weight: 700;
+    }
+
+    /* ============================================
+       GALLERY — FINGER ACCESSORIES
+       ============================================ */
+    .gallery {
+      background: var(--white);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 1;
+      cursor: pointer;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(94,122,82,0.8), transparent);
+      opacity: 0;
+      transition: opacity 0.4s;
+      display: flex;
+      align-items: flex-end;
+      padding: 20px;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .gallery-overlay span {
+      color: var(--white);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    /* ============================================
+       BENEFITS SECTION
+       ============================================ */
+    .benefits {
+      background: linear-gradient(135deg, var(--sage-dark), var(--sage));
+      color: var(--white);
+    }
+
+    .benefits .section-subtitle {
+      color: var(--gold-light);
+    }
+
+    .benefits .section-title {
+      color: var(--white);
+    }
+
+    .benefits .section-desc {
+      color: rgba(255,255,255,0.8);
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+    }
+
+    .benefit-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .benefit-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      line-height: 1;
+      min-width: 50px;
+    }
+
+    .benefit-item h4 {
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+      color: var(--white);
+    }
+
+    .benefit-item p {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.7;
+    }
+
+    /* ============================================
+       TESTIMONIALS
+       ============================================ */
+    .testimonials {
+      background: var(--cream);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      padding: 40px 32px;
+      position: relative;
+      border-bottom: 3px solid var(--gold);
+    }
+
+    .testimonial-card .quote-mark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      color: var(--sage-light);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .testimonial-card p {
+      font-style: italic;
+      color: var(--text-medium);
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+      line-height: 1.8;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .testimonial-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--sage-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      color: var(--sage-dark);
+      font-size: 1.1rem;
+    }
+
+    .testimonial-name {
+      font-weight: 500;
+      font-size: 0.85rem;
+      color: var(--charcoal);
+    }
+
+    .testimonial-role {
+      font-size: 0.75rem;
+      color: var(--text-light);
+    }
+
+    .stars {
+      color: var(--gold);
+      font-size: 0.85rem;
+      margin-bottom: 16px;
+      letter-spacing: 2px;
+    }
+
+    /* ============================================
+       WHERE WE POP UP
+       ============================================ */
+    .locations {
+      background: var(--white);
+    }
+
+    .locations-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .location-card {
+      text-align: center;
+      padding: 48px 28px;
+      border: 1px solid var(--sage-pale);
+      transition: all 0.3s;
+    }
+
+    .location-card:hover {
+      border-color: var(--gold);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+    }
+
+    .location-icon {
+      font-size: 2.8rem;
+      margin-bottom: 16px;
+    }
+
+    .location-card h3 {
+      font-size: 1.4rem;
+      color: var(--charcoal);
+      margin-bottom: 12px;
+    }
+
+    .location-card p {
+      color: var(--text-medium);
+      font-size: 0.9rem;
+    }
+
+    /* ============================================
+       CONTACT / BOOKING
+       ============================================ */
+    .contact {
+      background: var(--charcoal);
+      color: var(--white);
+    }
+
+    .contact .section-subtitle {
+      color: var(--gold-light);
+    }
+
+    .contact .section-title {
+      color: var(--white);
+    }
+
+    .contact .section-desc {
+      color: rgba(255,255,255,0.6);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+
+    .contact-info h3 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: var(--gold-light);
+    }
+
+    .contact-info p {
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      color: rgba(255,255,255,0.8);
+      font-size: 0.9rem;
+    }
+
+    .contact-detail span:first-child {
+      font-size: 1.2rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 16px 20px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 300;
+      margin-bottom: 16px;
+      transition: border-color 0.3s;
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: rgba(255,255,255,0.4);
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+
+    .contact-form textarea {
+      height: 140px;
+      resize: vertical;
+    }
+
+    .contact-form .btn-primary {
+      width: 100%;
+    }
+
+    /* ============================================
+       FOOTER
+       ============================================ */
+    .footer {
+      background: #1a1a1a;
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .footer-logo span {
+      color: var(--gold);
+    }
+
+    .footer p {
+      color: rgba(255,255,255,0.4);
+      font-size: 0.8rem;
+    }
+
+    .footer-links {
+      margin: 16px 0;
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold);
+    }
+
+    /* ============================================
+       ANIMATIONS
+       ============================================ */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================================
+       RESPONSIVE
+       ============================================ */
+    @media (max-width: 992px) {
+      .hero h1 { font-size: 3rem; }
+      .section-title { font-size: 2.2rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .locations-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        padding: 24px;
+        gap: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      }
+      .nav-links.active a {
+        color: var(--charcoal) !important;
+      }
+      .hero h1 { font-size: 2.4rem; }
+      .hero p { font-size: 0.95rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .benefits-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .btn-outline { margin-left: 0; margin-top: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== NAVIGATION ==================== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#" class="nav-logo">Plume <span>&</span> Touch</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Accessories</a></li>
+        <li><a href="#benefits">Benefits</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#contact">Book</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <p class="hero-tag">Luxury Light-Touch Wellness</p>
+      <h1>Where Gentle Touch Meets <em>Deep Relaxation</em></h1>
+      <p>Experience the art of bespoke fingertip relaxation using handcrafted artisan accessories — designed to melt tension from your back, arms, and shoulders.</p>
+      <a href="#contact" class="btn-primary">Book Your Session</a>
+      <a href="#services" class="btn-outline">Explore Services</a>
+    </div>
+  </section>
+
+  <!-- ==================== VIDEO SECTION ==================== -->
+  <section class="video-section" id="video">
+    <div class="container">
+      <p class="section-subtitle">See the Experience</p>
+      <h2 class="section-title">A Moment of Pure Calm</h2>
+      <div class="gold-line"></div>
+      <br /><br />
+      <div class="video-wrapper fade-in">
+        <!--
+          TO ADD YOUR OWN VIDEO:
+          Replace the div below with:
+          <video controls poster="your-image.jpg">
+            <source src="your-video.mp4" type="video/mp4" />
+          </video>
+          OR for a YouTube video:
+          <iframe width="100%" height="500" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+        -->
+        <div class="video-placeholder">
+          <div class="play-icon">▶</div>
+          <p>Your video will appear here</p>
+          <p style="font-size:0.8rem; opacity:0.6;">Upload your clip and replace this placeholder</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ABOUT ==================== -->
+  <section class="about section-padding" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image fade-in">
+          <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&q=80" alt="Relaxation therapy session" />
+        </div>
+        <div class="about-text fade-in">
+          <p class="section-subtitle">Our Philosophy</p>
+          <h2 class="section-title">The Science of Gentle Sensation</h2>
+          <div class="gold-line"></div>
+          <p>At Plume & Touch, we believe that the lightest touch can create the deepest sense of calm. Our curated collection of artisan finger accessories — from silk-wrapped tips to feathered gliders — are designed to stimulate the nervous system's relaxation response.</p>
+          <p>Each session is a carefully choreographed journey across the back, arms, and shoulders, using varying textures and pressures to release stored tension, lower cortisol levels, and promote a state of blissful tranquility.</p>
+          <p>Whether you're an expectant mother seeking gentle relief, a holiday-maker craving indulgence, or a professional in need of a midday reset — we bring the serenity to you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SERVICES ==================== -->
+  <section class="services section-padding" id="services">
+    <div class="container">
+      <p class="section-subtitle">Our Offerings</p>
+      <h2 class="section-title">Tailored Touch Experiences</h2>
+      <div class="gold-line"></div>
+      <p class="section-desc">Each service uses our signature collection of handcrafted finger accessories, chosen to match your sensitivity and preference.</p>
+
+      <div class="services-grid">
+        <div class="service-card fade-in">
+          <div class="service-icon">🪶</div>
+          <h3>The Whisper</h3>
+          <p>A 20-minute introductory session using our softest feather and silk accessories across the upper back and forearms. Perfect for first-timers.</p>
+          <div class="service-price">From $35</div>
+        </div>
+
+        <div class="service-card fade-in">
+          <div class="service-icon">✨</div>
+          <h3>The Golden Hour</h3>
+          <p>Our signature 45-minute full back and arm journey using a curated rotation of textured fingertip accessories. Deeply restorative and utterly indulgent.</p>
+          <div class="service-price">From $75</div>
+        </div>
+
+        <div class="service-card fade-in">
+          <div class="service-icon">🤰</div>
+          <h3>The Bloom</h3>
+          <p>Specially designed for expectant mothers. Ultra-gentle fingertip techniques using our softest accessories to ease pregnancy-related tension safely.</p>
+          <div class="service-price">From $55</div>
+        </div>
+
+        <div class="service-card fade-in">
+          <div class="service-icon">🌊</div>
+          <h3>The Coastal Drift</h3>
+          <p>Our holiday-exclusive 60-minute experience. Full upper-body relaxation with ocean-inspired rhythmic patterns. Available at partner hotels.</p>
+          <div class="service-price">From $95</div>
+        </div>
+
+        <div class="service-card fade-in">
+          <div class="service-icon">🎪</div>
+          <h3>Pop-Up Express</h3>
+          <p>A 15-minute taster session at our pop-up stalls. Experience the magic of light-touch relaxation during your lunch break or shopping trip.</p>
+          <div class="service-price">From $20</div>
+        </div>
+
+        <div class="service-card fade-in">
+          <div class="service-icon">💍</div>
+          <h3>Private Event</h3>
+          <p>Book Plume & Touch for your bridal party, corporate wellness day, or private gathering. Custom packages with multiple practitioners available.</p>
+          <div class="service-price">Custom Quote</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== GALLERY ==================== -->
+  <section class="gallery section-padding" id="gallery">
+    <div class="container">
+      <p class="section-subtitle">Our Collection</p>
+      <h2 class="section-title">Artisan Finger Accessories</h2>
+      <div class="gold-line"></div>
+      <p class="section-desc">Each piece is handcrafted from premium materials — silk, velvet, natural feathers, and soft silicone — to deliver a unique sensory experience.</p>
+
+      <div class="gallery-grid">
+        <div class="gallery-item fade-in">
+          <img src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=600&q=80" alt="Silk fingertip accessory" />
+          <div class="gallery-overlay"><span>Silk Whisper Tips</span></div>
+        </div>
+        <div class="gallery-item fade-in">
+          <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=600&q=80" alt="Feathered finger glider" />
+          <div class="gallery-overlay"><span>Feathered Gliders</span></div>
+        </div>
+        <div class="gallery-item fade-in">
+          <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=600&q=80" alt="Velvet touch rings" />
+          <div class="gallery-overlay"><span>Velvet Touch Rings</span></div>
+        </div>
+        <div class="gallery-item fade-in">
+          <img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=600&q=80" alt="Textured silicone tips" />
+          <div class="gallery-overlay"><span>Textured Silicone Set</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== BENEFITS ==================== -->
+  <section class="benefits section-padding" id="benefits">
+    <div class="container">
+      <p class="section-subtitle">Why It Works</p>
+      <h2 class="section-title">The Benefits of Light-Touch Therapy</h2>
+      <div class="gold-line"></div>
+      <p class="section-desc">Backed by emerging research in somatic relaxation, our gentle fingertip techniques offer real, measurable benefits for body and mind.</p>
+
+      <div class="benefits-grid">
+        <div class="benefit-item fade-in">
+          <div class="benefit-number">01</div>
+          <div>
+            <h4>Cortisol Reduction</h4>
+            <p>Light, repetitive touch signals the parasympathetic nervous system to lower stress hormones, helping you shift from "fight or flight" into deep rest mode within minutes.</p>
+          </div>
+        </div>
+        <div class="benefit-item fade-in">
+          <div class="benefit-number">02</div>
+          <div>
+            <h4>Improved Sleep Quality</h4>
+            <p>Clients consistently report deeper, more restful sleep in the 48 hours following a session — particularly beneficial for expectant mothers experiencing pregnancy insomnia.</p>
+          </div>
+        </div>
+        <div class="benefit-item fade-in">
+          <div class="benefit-number">03</div>
+          <div>
+            <h4>Muscle Tension Release</h4>
+            <p>The varied textures of our finger accessories stimulate micro-circulation across the back and arms, gently loosening knots and tightness without deep-pressure discomfort.</p>
+          </div>
+        </div>
+        <div class="benefit-item fade-in">
+          <div class="benefit-number">04</div>
+          <div>
+            <h4>Mood Elevation & Joy</h4>
+            <p>The playful, unexpected nature of light tickle-touch triggers endorphin and oxytocin release, leaving clients feeling genuinely happy, lighter, and more connected to their bodies.</p>
+          </div>
+        </div>
+        <div class="benefit-item fade-in">
+          <div class="benefit-number">05</div>
+          <div>
+            <h4>Safe for Pregnancy</h4>
+            <p>Unlike deep-tissue massage, our ultra-gentle fingertip approach is completely safe throughout all trimesters, offering relief without risk to mother or baby.</p>
+          </div>
+        </div>
+        <div class="benefit-item fade-in">
+          <div class="benefit-number">06</div>
+          <div>
+            <h4>Sensory Mindfulness</h4>
+            <p>The unique sensations draw your full attention to the present moment — a form of active meditation that quiets mental chatter and promotes profound mental clarity.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TESTIMONIALS ==================== -->
+  <section class="testimonials section-padding" id="testimonials">
+    <div class="container">
+      <p class="section-subtitle">Client Love</p>
+      <h2 class="section-title">What Our Guests Say</h2>
+      <div class="gold-line"></div>
+      <br />
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card fade-in">
+          <div class="quote-mark">"</div>
+          <div class="stars">★ ★ ★ ★ ★</div>
+          <p>I was skeptical at first, but within five minutes I was in a state of relaxation I haven't felt in years. The silk fingertip accessories on my shoulders were absolutely heavenly. I've already booked three more sessions.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">S</div>
+            <div>
+              <div class="testimonial-name">Sarah M.</div>
+              <div class="testimonial-role">Hotel Guest, Coastal Resort</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card fade-in">
+          <div class="quote-mark">"</div>
+          <div class="stars">★ ★ ★ ★ ★</div>
+          <p>As a pregnant mum at 32 weeks, I can't have traditional massages. The Bloom session was the most wonderful, safe, and gentle experience. I actually cried from relief. Every prenatal class needs this.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">J</div>
+            <div>
+              <div class="testimonial-name">Jessica T.</div>
+              <div class="testimonial-role">Expectant Mother</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card fade-in">
+          <div class="quote-mark">"</div>
+          <div class="stars">★ ★ ★ ★ ★</div>
+          <p>We booked Plume & Touch for our corporate wellness day and it was the most popular station by far. Elegant, professional, and genuinely effective. Our team was buzzing about it for weeks.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">D</div>
+            <div>
+              <div class="testimonial-name">David R.</div>
+              <div class="testimonial-role">HR Director, Finance Firm</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== LOCATIONS ==================== -->
+  <section class="locations section-padding" id="locations">
+    <div class="container">
+      <p class="section-subtitle">Find Us</p>
+      <h2 class="section-title">Where We Bring the Calm</h2>
+      <div class="gold-line"></div>
+      <p class="section-desc">Plume & Touch comes to you. We operate across three beautiful settings designed to complement your relaxation experience.</p>
+
+      <div class="locations-grid">
+        <div class="location-card fade-in">
+          <div class="location-icon">🏨</div>
+          <h3>Coastal Hotels & Resorts</h3>
+          <p>Partnering with luxury seaside hotels to offer guests an unforgettable holiday wellness experience. Ask your concierge about availability.</p>
+        </div>
+        <div class="location-card fade-in">
+          <div class="location-icon">🏥</div>
+          <h3>Hospitals & Prenatal Classes</h3>
+          <p>Bringing safe, gentle relaxation to expectant mothers in hospital maternity wards and prenatal wellness programs.</p>
+        </div>
+        <div class="location-card fade-in">
+          <div class="location-icon">🎪</div>
+          <h3>Pop-Up Events & Markets</h3>
+          <p>Look for our elegant sage-and-gold stall at premium markets, wellness festivals, and private events throughout the season.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CONTACT ==================== -->
+  <section class="contact section-padding" id="contact">
+    <div class="container">
+      <p class="section-subtitle">Get in Touch</p>
+      <h2 class="section-title">Book Your Experience</h2>
+      <div class="gold-line"></div>
+      <p class="section-desc">Ready to discover the art of gentle touch? Reach out to schedule a session or inquire about partnerships.</p>
+
+      <div class="contact-grid">
+        <div class="contact-info fade-in">
+          <h3>Let's Connect</h3>
+          <p>Whether you're a hotel manager, prenatal coordinator, event planner, or simply someone who deserves a moment of pure relaxation — we'd love to hear from you.</p>
+          <br />
+          <div class="contact-detail">
+            <span>📧</span> hello@plumeandtouch.com
+          </div>
+          <div class="contact-detail">
+            <span>📱</span> +1 (555) 123-4567
+          </div>
+          <div class="contact-detail">
+            <span>📍</span> Coastal Region & Surrounding Areas
+          </div>
+          <div class="contact-detail">
+            <span>🕐</span> Mon – Sun, 9am – 7pm
+          </div>
+        </div>
+
+        <form class="contact-form fade-in" onsubmit="event.preventDefault(); alert('Thank you! We will be in touch within 24 hours.');">
+          <input type="text" placeholder="Your Full Name" required />
+          <input type="email" placeholder="Email Address" required />
+          <input type="text" placeholder="Phone Number" />
+          <textarea placeholder="Tell us about the experience you'd like..."></textarea>
+          <button type="submit" class="btn-primary">Send Inquiry</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">Plume <span>&</span> Touch</div>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#gallery">Accessories</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <p>&copy; 2025 Plume & Touch. All rights reserved. Luxury Light-Touch Wellness.</p>
+    </div>
+  </footer>
+
+  <!-- ==================== JAVASCRIPT ==================== -->
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 80) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile menu toggle
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('active');
+    }
+
+    // Close mobile menu on link click
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('navLinks').classList.remove('active');
+      });
+    });
+
+    // Scroll fade-in animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
